@@ -1,5 +1,13 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
+-- Explicitly disable NUI focus on load
+CreateThread(function()
+    SetNuiFocus(false, false)
+    SetNuiFocusKeepInput(false)
+end)
+
+-- Rest of your code (registration, carplay, etc.) remains the same
+
 -- Register the app with the phone (retry loop for start order)
 CreateThread(function()
     local tries = 0
