@@ -1,28 +1,19 @@
 fx_version 'cerulean'
 game 'gta5'
 
-author 'skeet'
-description 'skeet_music - standalone URL streaming + Library/Playlists + CarPlay overlay'
-version '1.1.0'
+author 'Grok Assisted'
+description 'Standalone Music App for skeet_phone - URL Streaming with Playlists and CarPlay'
+version '1.0.0'
 
-ui_page 'ui/index.html'
+ui_page 'ui/index.html'  -- Now in ui/
 
 files {
-  'ui/index.html',
-  'ui/style.css',
-  'ui/app.js',
-  'ui/assets/*.png'
+    'ui/index.html',
+    'ui/app.js',
+    'ui/style.css',
+    'ui/assets/*.png'
 }
-
-shared_script 'config.lua'
 
 client_script 'client/main.lua'
-server_scripts {
-  '@oxmysql/lib/MySQL.lua',
-  'server/main.lua'
-}
 
-dependencies {
-  'qb-core',
-  'oxmysql'
-}
+dependency 'skeet_phone'

@@ -1,249 +1,59 @@
-:root{
-  --bg: rgba(35,35,35,.82);
-  --glass: rgba(255,255,255,.10);
-  --line: rgba(255,255,255,.14);
-  --txt: rgba(255,255,255,.95);
-  --muted: rgba(255,255,255,.65);
-  --blue: #3aa7ff;
+body {
+    background: #1a1a1a;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    height: 100vh;
+    overflow-y: auto;
 }
 
-*{ box-sizing:border-box; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; }
-body{ margin:0; background:transparent; overflow:hidden; }
-
-.root{
-  position:fixed;
-  inset:0;
-  pointer-events:auto;
-}
-.hidden{ display:none !important; }
-
-.carplay{
-  position:absolute;
-  left:24px; top:24px;
-  width:820px; height:415px;
-
-  border-radius:22px;
-  background: linear-gradient(180deg, rgba(60,60,60,.50), rgba(30,30,30,.65));
-  box-shadow: 0 24px 70px rgba(0,0,0,.45);
-  overflow:hidden;
-
-  border: 1px solid rgba(255,255,255,.10);
+.container {
+    max-width: 300px;
+    margin: 0 auto;
 }
 
-.sidebar{
-  position:absolute;
-  top:0; left:0; bottom:0;
-  width:66px;
-  background: rgba(20,20,20,.55);
-  border-right:1px solid rgba(255,255,255,.08);
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  padding:14px 12px;
-  align-items:center;
-}
-.sidebar .icon{
-  width:42px; height:42px;
-  border-radius:12px;
-  background: rgba(255,255,255,.08);
-}
-.sidebar .icon.music{
-  background: linear-gradient(180deg, #ff3b30, #ff2d55);
-}
-.sidebar .icon.on{
-  outline: 2px solid rgba(255,255,255,.25);
+h1, h2 {
+    text-align: center;
 }
 
-.main{
-  position:absolute;
-  top:0; bottom:0;
-  left:66px; right:0;
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
-.topbar{
-  height:54px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding: 0 16px;
-  color: var(--txt);
-}
-.topbar .left{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-.link{
-  border:0;
-  background:transparent;
-  color: var(--blue);
-  font-size: 22px;
-  cursor:pointer;
-}
-.topTitle{ font-weight:800; }
-.hint{ color: var(--blue); font-weight:800; }
-
-.content{
-  position:absolute;
-  left:16px; right:16px;
-  top:54px; bottom:92px;
-  display:grid;
-  grid-template-columns: 1fr 240px;
-  gap:16px;
+button {
+    padding: 10px;
+    margin: 5px;
+    background: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
 }
 
-.center{
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.10);
-  border-radius:18px;
-  padding:16px;
-}
-.title{ font-size:24px; font-weight:900; text-align:center; margin-top:6px; }
-.artist{ color: var(--txt); opacity:.90; text-align:center; font-weight:800; margin-top:2px; }
-.album{ color: var(--blue); text-align:center; font-weight:900; margin-top:6px; }
-
-.controls{
-  margin-top:16px;
-  display:flex;
-  justify-content:center;
-  gap:10px;
-}
-.cbtn{
-  width:120px; height:52px;
-  border-radius:10px;
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.08);
-  color: var(--txt);
-  font-size:22px;
-  cursor:pointer;
-}
-.cbtn.big{ width:160px; }
-
-.timeline{
-  margin-top:14px;
-  display:grid;
-  grid-template-columns: 48px 1fr 48px;
-  align-items:center;
-  gap:10px;
-  color: var(--muted);
-  font-weight:800;
-}
-.timeline input[type="range"]{ width:100%; }
-
-.mini{
-  margin-top:14px;
-  display:flex;
-  justify-content:center;
-  gap:10px;
-}
-.miniBtn{
-  border-radius:10px;
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.06);
-  color: var(--txt);
-  font-weight:900;
-  padding: 10px 16px;
-  cursor:pointer;
+ul {
+    list-style: none;
+    padding: 0;
 }
 
-.artwrap{
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.10);
-  border-radius:18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:14px;
-}
-.artwrap img{
-  width:100%;
-  height:100%;
-  border-radius:14px;
-  object-fit:cover;
-  background: rgba(0,0,0,.2);
+li {
+    padding: 10px;
+    background: #444;
+    margin-bottom: 5px;
+    cursor: pointer;
 }
 
-.bottom{
-  position:absolute;
-  left:16px; right:16px;
-  bottom:16px;
-  height:68px;
-  display:flex;
-  gap:14px;
-  align-items:center;
-  justify-content:space-between;
-}
-.vol{
-  flex: 1;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.10);
-  border-radius:16px;
-  padding: 12px 14px;
-}
-.vol .label{ color: var(--muted); font-weight:900; width:70px; }
-.tabs{
-  display:flex;
-  gap:10px;
-}
-.tab{
-  height:48px;
-  padding: 0 16px;
-  border-radius:14px;
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.06);
-  color: var(--txt);
-  font-weight:900;
-  cursor:pointer;
-}
-.tab.on{ background: rgba(255,255,255,.12); }
-
-.panel{
-  position:absolute;
-  left:16px; right:16px;
-  top:54px; bottom:92px;
-  overflow:auto;
-  padding: 10px;
-}
-.panel.hidden{ display:none; }
-
-.item{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding: 12px 12px;
-  border-radius:14px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.10);
-  margin-bottom: 10px;
-}
-.item .meta{ display:flex; flex-direction:column; gap:3px; }
-.item .t{ font-weight:900; color: var(--txt); }
-.item .s{ font-weight:800; color: var(--muted); font-size:12px; }
-.item .btns{ display:flex; gap:8px; }
-.item button{
-  border-radius:10px;
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.08);
-  color: var(--txt);
-  font-weight:900;
-  padding: 8px 10px;
-  cursor:pointer;
+.carplay {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: rgba(0,0,0,0.8);
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
 }
 
-.close{
-  position:absolute;
-  left: calc(24px + 820px + 10px);
-  top: 24px;
-  width: 34px;
-  height: 34px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,.12);
-  background: rgba(10,10,10,.45);
-  color: rgba(255,255,255,.95);
-  font-weight: 1000;
-  font-size: 22px;
-  cursor:pointer;
+.carplay.hidden {
+    display: none;
 }

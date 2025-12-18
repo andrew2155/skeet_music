@@ -1,84 +1,37 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music App</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="root" class="root hidden">
-    <div id="carplay" class="carplay">
-      <div class="sidebar">
-        <div class="icon"></div>
-        <div class="icon music on"></div>
-        <div class="icon"></div>
-        <div class="icon"></div>
-      </div>
-
-      <div class="main">
-        <div class="topbar">
-          <div class="left">
-            <button id="btnBack" class="link">‹</button>
-            <div id="nowTitleTop" class="topTitle">Not Playing</div>
-          </div>
-          <div class="right">
-            <div class="hint">Playing Next</div>
-          </div>
+    <div class="container">
+        <h1>Music Player</h1>
+        <input type="text" id="urlInput" placeholder="Enter audio URL (e.g., direct MP3)">
+        <button id="addBtn">Add to Playlist</button>
+        <div class="controls">
+            <button id="playBtn">Play</button>
+            <button id="pauseBtn">Pause</button>
+            <button id="stopBtn">Stop</button>
+            <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
         </div>
-
-        <div class="content">
-          <div class="center">
-            <div id="nowTitle" class="title">Not Playing</div>
-            <div id="nowArtist" class="artist">—</div>
-            <div id="nowAlbum" class="album">—</div>
-
-            <div class="controls">
-              <button id="btnPrev" class="cbtn">⏮</button>
-              <button id="btnPlay" class="cbtn big">▶</button>
-              <button id="btnNext" class="cbtn">⏭</button>
-            </div>
-
-            <div class="timeline">
-              <span id="tCur">0:00</span>
-              <input id="seek" type="range" min="0" max="100" value="0"/>
-              <span id="tEnd">0:00</span>
-            </div>
-
-            <div class="mini">
-              <button id="btnShuffle" class="miniBtn">Shuffle</button>
-              <button id="btnRepeat" class="miniBtn">Repeat</button>
-              <button id="btnMore" class="miniBtn">•••</button>
-            </div>
-          </div>
-
-          <div class="artwrap">
-            <img id="art" src="assets/placeholder_art.png" />
-          </div>
-        </div>
-
-        <div class="bottom">
-          <div class="vol">
-            <div class="label">Volume</div>
-            <input id="vol" type="range" min="0" max="100" value="65"/>
-          </div>
-
-          <div class="tabs">
-            <button id="tabNow" class="tab on">Now</button>
-            <button id="tabLib" class="tab">Library</button>
-            <button id="tabPl" class="tab">Playlists</button>
-          </div>
-        </div>
-
-        <div id="panelNow" class="panel"></div>
-        <div id="panelLib" class="panel hidden"></div>
-        <div id="panelPl" class="panel hidden"></div>
-      </div>
+        <h2>Playlist</h2>
+        <ul id="playlist"></ul>
+        <audio id="player" controls style="display:none;"></audio>
     </div>
 
-    <button id="close" class="close">×</button>
-  </div>
+    <!-- CarPlay Overlay (hidden until toggled) -->
+    <div id="carPlayOverlay" class="carplay hidden">
+        <div class="carplay-content">
+            <h3>Now Playing: <span id="currentTrack">None</span></h3>
+            <button id="carPlayPlay">Play</button>
+            <button id="carPlayPause">Pause</button>
+            <button id="carPlayNext">Next</button>
+        </div>
+    </div>
 
-  <audio id="audio" preload="none" crossorigin="anonymous"></audio>
-  <script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
