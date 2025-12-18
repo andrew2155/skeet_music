@@ -84,3 +84,11 @@ window.addEventListener('message', (event) => {
 // Init
 renderPlaylist();
 player.volume = 0.5;
+// Detect if loaded in iframe (phone app) vs global NUI (for overlay)
+if (window.top !== window.self) {
+    document.querySelector('.container').style.display = 'block';
+    carPlayOverlay.style.display = 'none';  // Hide overlay in phone app
+} else {
+    // Global NUI: hide app UI, overlay handled by toggle
+    document.querySelector('.container').style.display = 'none';
+}
