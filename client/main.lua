@@ -1,4 +1,10 @@
 local QBCore = exports['qb-core']:GetCoreObject()
+AddEventHandler('onClientResourceStart', function(res)
+  if res ~= GetCurrentResourceName() then return end
+  SetNuiFocus(false, false)
+  SetNuiFocusKeepInput(false)
+  SendNUIMessage({ action = 'hide' }) -- you’ll add a handler in UI (Step 2)
+end)
 
 -- Explicitly disable NUI focus on load
 CreateThread(function()
